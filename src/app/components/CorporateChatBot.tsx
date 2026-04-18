@@ -39,25 +39,33 @@ export function CorporateChatBot({ onClose }: CorporateChatBotProps) {
 
     // Analytics and Performance
     if (lowerMessage.includes('perform') || lowerMessage.includes('metric') || lowerMessage.includes('analytic')) {
-      return 'Based on current data:\n\n• Westside is your top performer with 156 donations/day (+22% growth)\n• Downtown processes 127 donations/day with steady growth (+12%)\n• Eastside needs attention with 98 donations/day (-5% decline)\n\nKey metrics: Total revenue $25K/day across all locations, 88% average processing efficiency. Would you like recommendations for improving underperforming locations?';
+      return 'Based on current data:\n\n• Arlington is your top performer with 156 donations/day (+22% growth)\n• Greater Washington processes 127 donations/day with steady growth (+12%)\n• Falls Church needs attention with 98 donations/day (-5% decline)\n\nKey metrics: Total revenue $43K/day across all locations, 88% average processing efficiency. Would you like recommendations for improving underperforming locations?';
     }
 
     // Location-specific questions
-    if (lowerMessage.includes('westside')) {
-      return 'Westside Goodwill Analysis:\n\n• Strongest performer: 156 donations/day\n• Specialization: Children\'s items (40% of inventory)\n• Revenue: $9,850/day (+28% growth)\n• Status: Operating at high capacity\n\nRecommendation: Add 2-3 staff during peak hours and deploy AI image recognition to maintain efficiency. This location\'s success strategies should be studied and replicated.';
+    if (lowerMessage.includes('arlington') || lowerMessage.includes('glebe')) {
+      return 'Arlington, Glebe Road Analysis:\n\n• Strongest performer: 156 donations/day\n• Specialization: Children\'s items (40% of inventory)\n• Revenue: $9,850/day (+28% growth)\n• Status: Operating at high capacity\n\nRecommendation: Add 2-3 staff during peak hours and deploy AI image recognition to maintain efficiency. This location\'s success strategies should be studied and replicated.';
     }
 
-    if (lowerMessage.includes('eastside')) {
-      return 'Eastside Goodwill Analysis:\n\n• Volume: 98 donations/day\n• Decline: -5% this week\n• Specialization: Furniture (39% of inventory)\n• Revenue: $6,730/day\n\nRecommendations:\n• Increase local marketing spend by $500-1000/month\n• Partner with 2-3 local community organizations\n• Review donation hours and accessibility\n• Consider reassigning 1-2 staff to higher-volume locations temporarily';
+    if (lowerMessage.includes('falls church') || lowerMessage.includes('annandale rd')) {
+      return 'West Falls Church Analysis:\n\n• Volume: 98 donations/day\n• Decline: -5% this week\n• Specialization: Furniture (39% of inventory)\n• Revenue: $6,730/day\n\nRecommendations:\n• Increase local marketing spend by $500-1000/month\n• Partner with 2-3 local community organizations\n• Review donation hours and accessibility\n• Consider reassigning 1-2 staff to higher-volume locations temporarily';
     }
 
-    if (lowerMessage.includes('downtown')) {
-      return 'Downtown Goodwill Analysis:\n\n• Volume: 127 donations/day\n• Growth: +12% (steady increase)\n• Balanced inventory across categories\n• Revenue: $8,420/day\n\nStrengths: Consistent performance, professional clothing demand. Operating efficiently with current resources.';
+    if (lowerMessage.includes('washington') || lowerMessage.includes('greater washington') || lowerMessage.includes('new york ave')) {
+      return 'Goodwill of Greater Washington Analysis:\n\n• Volume: 127 donations/day\n• Growth: +12% (steady increase)\n• Balanced inventory across categories\n• Revenue: $8,420/day\n\nStrengths: Consistent performance, professional clothing demand. Operating efficiently with current resources.';
+    }
+
+    if (lowerMessage.includes('alexandria') || lowerMessage.includes('richmond')) {
+      return 'Alexandria, Richmond Highway Analysis:\n\n• Volume: 142 donations/day\n• Growth: +18% (strong growth)\n• Specialization: Furniture (37% of inventory)\n• Revenue: $9,120/day\n\nStrengths: Solid performance in furniture donations. Well-staffed and operating efficiently.';
+    }
+
+    if (lowerMessage.includes('annandale') || lowerMessage.includes('columbia pike')) {
+      return 'Annandale, Columbia Pike Analysis:\n\n• Volume: 108 donations/day\n• Growth: +8% (moderate growth)\n• Specialization: Electronics (39% of inventory)\n• Revenue: $7,340/day\n\nRecommendation: Focus on electronics expertise as a competitive advantage in the region.';
     }
 
     // Staffing questions
     if (lowerMessage.includes('staff') || lowerMessage.includes('hiring') || lowerMessage.includes('employee')) {
-      return 'Staffing Optimization Insights:\n\n• Peak donation hours: 10am-2pm (42% of daily volume)\n• Westside: Operating at 138% capacity - needs +2-3 staff\n• Eastside: Operating at 84% capacity - can reassign -1-2 staff\n• Downtown: Optimal staffing levels\n\nRecommendation: Implement flexible cross-location staffing pool. Shift 2 Eastside staff to Westside Mon-Wed. Expected savings: $2.3K/month with 40% backlog reduction.';
+      return 'Staffing Optimization Insights:\n\n• Peak donation hours: 10am-2pm (42% of daily volume)\n• Arlington: Operating at 138% capacity - needs +2-3 staff\n• Falls Church: Operating at 84% capacity - can reassign -1-2 staff\n• Greater Washington: Optimal staffing levels\n\nRecommendation: Implement flexible cross-location staffing pool. Shift 2 Falls Church staff to Arlington Mon-Wed. Expected savings: $2.3K/month with 40% backlog reduction.';
     }
 
     // Partnership questions

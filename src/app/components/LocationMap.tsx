@@ -10,9 +10,11 @@ interface Location {
 }
 
 const goodwillLocations: Location[] = [
-  { name: 'Downtown Goodwill', lat: 40.7128, lng: -74.0060, state: 'NY' },
-  { name: 'Westside Goodwill', lat: 40.7589, lng: -73.9851, state: 'NY' },
-  { name: 'Eastside Goodwill', lat: 40.7489, lng: -73.9680, state: 'NY' },
+  { name: 'Goodwill of Greater Washington', lat: 38.9072, lng: -76.9964, state: 'DC' },
+  { name: 'Arlington, Glebe Road', lat: 38.8760, lng: -77.1167, state: 'VA' },
+  { name: 'West Falls Church', lat: 38.8607, lng: -77.1717, state: 'VA' },
+  { name: 'Alexandria, Richmond Highway', lat: 38.7693, lng: -77.0841, state: 'VA' },
+  { name: 'Annandale, Columbia Pike', lat: 38.8304, lng: -77.1977, state: 'VA' },
 ];
 
 export function LocationMap() {
@@ -22,8 +24,8 @@ export function LocationMap() {
   useEffect(() => {
     if (!containerRef.current || mapRef.current) return;
 
-    // Initialize map
-    const map = L.map(containerRef.current).setView([40.7489, -73.9680], 12);
+    // Initialize map - centered on DC/VA area
+    const map = L.map(containerRef.current).setView([38.8607, -77.1167], 11);
     mapRef.current = map;
 
     // Add OpenStreetMap tiles

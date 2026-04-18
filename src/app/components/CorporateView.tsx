@@ -17,7 +17,7 @@ interface LocationMetrics {
 
 const locationMetrics: LocationMetrics[] = [
   {
-    location: 'Downtown Goodwill',
+    location: 'Goodwill of Greater Washington',
     donations: 127,
     donationsChange: 12,
     uniqueDonors: 89,
@@ -33,7 +33,7 @@ const locationMetrics: LocationMetrics[] = [
     ],
   },
   {
-    location: 'Westside Goodwill',
+    location: 'Arlington, Glebe Road',
     donations: 156,
     donationsChange: 22,
     uniqueDonors: 112,
@@ -49,7 +49,7 @@ const locationMetrics: LocationMetrics[] = [
     ],
   },
   {
-    location: 'Eastside Goodwill',
+    location: 'West Falls Church',
     donations: 98,
     donationsChange: -5,
     uniqueDonors: 71,
@@ -64,21 +64,53 @@ const locationMetrics: LocationMetrics[] = [
       { name: 'Books', count: 19, percentage: 19 },
     ],
   },
+  {
+    location: 'Alexandria, Richmond Highway',
+    donations: 142,
+    donationsChange: 18,
+    uniqueDonors: 98,
+    donorsChange: 12,
+    processedItems: 118,
+    itemsChange: 20,
+    revenue: 9120,
+    revenueChange: 22,
+    topCategories: [
+      { name: 'Furniture', count: 52, percentage: 37 },
+      { name: 'Clothing', count: 48, percentage: 34 },
+      { name: 'Appliances', count: 28, percentage: 20 },
+    ],
+  },
+  {
+    location: 'Annandale, Columbia Pike',
+    donations: 108,
+    donationsChange: 8,
+    uniqueDonors: 76,
+    donorsChange: 5,
+    processedItems: 92,
+    itemsChange: 10,
+    revenue: 7340,
+    revenueChange: 12,
+    topCategories: [
+      { name: 'Electronics', count: 42, percentage: 39 },
+      { name: 'Household', count: 38, percentage: 35 },
+      { name: 'Clothing', count: 20, percentage: 19 },
+    ],
+  },
 ];
 
 const dailyTrends = [
-  { day: 'Mon', downtown: 62, westside: 74, eastside: 48 },
-  { day: 'Tue', downtown: 58, westside: 68, eastside: 52 },
-  { day: 'Wed', downtown: 71, westside: 82, eastside: 45 },
-  { day: 'Thu', downtown: 69, westside: 88, eastside: 56 },
-  { day: 'Fri', downtown: 84, westside: 95, eastside: 61 },
-  { day: 'Sat', downtown: 127, westside: 156, eastside: 98 },
-  { day: 'Sun', downtown: 96, westside: 121, eastside: 72 },
+  { day: 'Mon', washington: 62, arlington: 74, falls: 48, alexandria: 68, annandale: 52 },
+  { day: 'Tue', washington: 58, arlington: 68, falls: 52, alexandria: 64, annandale: 48 },
+  { day: 'Wed', washington: 71, arlington: 82, falls: 45, alexandria: 76, annandale: 54 },
+  { day: 'Thu', washington: 69, arlington: 88, falls: 56, alexandria: 82, annandale: 58 },
+  { day: 'Fri', washington: 84, arlington: 95, falls: 61, alexandria: 88, annandale: 64 },
+  { day: 'Sat', washington: 127, arlington: 156, falls: 98, alexandria: 142, annandale: 108 },
+  { day: 'Sun', washington: 96, arlington: 121, falls: 72, alexandria: 112, annandale: 82 },
 ];
 
 // Quarterly data for multi-year tracking (percentages of total donations by category)
 const quarterlyTrendsByLocation = {
-  'Downtown Goodwill': [
+  'Goodwill of Greater Washington': [
     { quarter: 'Q1 2023', clothing: 1650, furniture: 890, electronics: 680, household: 1020, other: 620 },
     { quarter: 'Q2 2023', clothing: 1780, furniture: 950, electronics: 740, household: 1100, other: 710 },
     { quarter: 'Q3 2023', clothing: 1820, furniture: 970, electronics: 760, household: 1140, other: 730 },
@@ -92,7 +124,7 @@ const quarterlyTrendsByLocation = {
     { quarter: 'Q3 2025', clothing: 2680, furniture: 1390, electronics: 1110, household: 1660, other: 1080 },
     { quarter: 'Q4 2025', clothing: 2850, furniture: 1470, electronics: 1180, household: 1750, other: 1140 },
   ],
-  'Westside Goodwill': [
+  'Arlington, Glebe Road': [
     { quarter: 'Q1 2023', clothing: 2020, furniture: 980, electronics: 790, household: 1180, other: 740 },
     { quarter: 'Q2 2023', clothing: 2180, furniture: 1050, electronics: 850, household: 1270, other: 800 },
     { quarter: 'Q3 2023', clothing: 2240, furniture: 1080, electronics: 870, household: 1310, other: 820 },
@@ -106,7 +138,7 @@ const quarterlyTrendsByLocation = {
     { quarter: 'Q3 2025', clothing: 3320, furniture: 1570, electronics: 1280, household: 1930, other: 1200 },
     { quarter: 'Q4 2025', clothing: 3540, furniture: 1670, electronics: 1360, household: 2050, other: 1280 },
   ],
-  'Eastside Goodwill': [
+  'West Falls Church': [
     { quarter: 'Q1 2023', clothing: 1320, furniture: 800, electronics: 560, household: 860, other: 520 },
     { quarter: 'Q2 2023', clothing: 1420, furniture: 860, electronics: 600, household: 920, other: 560 },
     { quarter: 'Q3 2023', clothing: 1460, furniture: 880, electronics: 620, household: 950, other: 580 },
@@ -119,6 +151,34 @@ const quarterlyTrendsByLocation = {
     { quarter: 'Q2 2025', clothing: 2080, furniture: 1260, electronics: 890, household: 1360, other: 840 },
     { quarter: 'Q3 2025', clothing: 2130, furniture: 1290, electronics: 910, household: 1390, other: 860 },
     { quarter: 'Q4 2025', clothing: 2270, furniture: 1370, electronics: 970, household: 1480, other: 920 },
+  ],
+  'Alexandria, Richmond Highway': [
+    { quarter: 'Q1 2023', clothing: 1850, furniture: 1120, electronics: 720, household: 1080, other: 660 },
+    { quarter: 'Q2 2023', clothing: 1990, furniture: 1200, electronics: 780, household: 1160, other: 710 },
+    { quarter: 'Q3 2023', clothing: 2040, furniture: 1230, electronics: 800, household: 1200, other: 730 },
+    { quarter: 'Q4 2023', clothing: 2200, furniture: 1320, electronics: 860, household: 1290, other: 790 },
+    { quarter: 'Q1 2024', clothing: 2270, furniture: 1370, electronics: 890, household: 1330, other: 820 },
+    { quarter: 'Q2 2024', clothing: 2440, furniture: 1470, electronics: 960, household: 1420, other: 880 },
+    { quarter: 'Q3 2024', clothing: 2510, furniture: 1510, electronics: 980, household: 1470, other: 910 },
+    { quarter: 'Q4 2024', clothing: 2710, furniture: 1630, electronics: 1060, household: 1580, other: 980 },
+    { quarter: 'Q1 2025', clothing: 2780, furniture: 1670, electronics: 1090, household: 1630, other: 1010 },
+    { quarter: 'Q2 2025', clothing: 2940, furniture: 1770, electronics: 1150, household: 1720, other: 1070 },
+    { quarter: 'Q3 2025', clothing: 3010, furniture: 1810, electronics: 1180, household: 1770, other: 1100 },
+    { quarter: 'Q4 2025', clothing: 3200, furniture: 1920, electronics: 1250, household: 1880, other: 1170 },
+  ],
+  'Annandale, Columbia Pike': [
+    { quarter: 'Q1 2023', clothing: 1410, furniture: 760, electronics: 640, household: 920, other: 560 },
+    { quarter: 'Q2 2023', clothing: 1520, furniture: 820, electronics: 690, household: 990, other: 600 },
+    { quarter: 'Q3 2023', clothing: 1560, furniture: 840, electronics: 710, household: 1020, other: 620 },
+    { quarter: 'Q4 2023', clothing: 1680, furniture: 910, electronics: 760, household: 1100, other: 670 },
+    { quarter: 'Q1 2024', clothing: 1740, furniture: 940, electronics: 790, household: 1130, other: 690 },
+    { quarter: 'Q2 2024', clothing: 1870, furniture: 1010, electronics: 850, household: 1220, other: 740 },
+    { quarter: 'Q3 2024', clothing: 1920, furniture: 1040, electronics: 870, household: 1250, other: 760 },
+    { quarter: 'Q4 2024', clothing: 2070, furniture: 1120, electronics: 940, household: 1350, other: 820 },
+    { quarter: 'Q1 2025', clothing: 2130, furniture: 1150, electronics: 970, household: 1380, other: 850 },
+    { quarter: 'Q2 2025', clothing: 2250, furniture: 1220, electronics: 1020, household: 1460, other: 900 },
+    { quarter: 'Q3 2025', clothing: 2310, furniture: 1250, electronics: 1050, household: 1500, other: 930 },
+    { quarter: 'Q4 2025', clothing: 2460, furniture: 1330, electronics: 1120, household: 1600, other: 990 },
   ],
 };
 
@@ -144,7 +204,7 @@ const partnershipData: PartnershipData[] = [
 export function CorporateView() {
   const [showChat, setShowChat] = useState(false);
   const [selectedBranch, setSelectedBranch] = useState<string>('All Locations');
-  const [recommendationBranch, setRecommendationBranch] = useState<string>('Downtown Goodwill');
+  const [recommendationBranch, setRecommendationBranch] = useState<string>('Goodwill of Greater Washington');
 
   const totalDonations = locationMetrics.reduce((sum, loc) => sum + loc.donations, 0);
   const totalDonors = locationMetrics.reduce((sum, loc) => sum + loc.uniqueDonors, 0);

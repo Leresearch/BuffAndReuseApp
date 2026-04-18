@@ -1,0 +1,11 @@
+/* Helvetica Neue Black Extended Font */
+@import url('https://fonts.cdnfonts.com/css/helvetica-neue-9');
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 900;
+}

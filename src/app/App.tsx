@@ -102,6 +102,33 @@ export default function App() {
     }
   };
 
+  const updateDonation = (id: string, updates: Partial<Donation>) => {
+    setDonations(prev => prev.map(donation => {
+      if (donation.id === id) {
+        const oldWeight = donation.accepted ? donation.weight : 0;
+        const updatedDonation = { ...donation, ...updates };
+        const newWeight = updatedDonation.accepted ? updatedDonation.weight : 0;
+
+        // Update current weight based on changes
+        const weightDiff = newWeight - oldWeight;
+        if (weightDiff !== 0) {
+          setCurrentWeight(curr => curr + weightDiff);
+        }
+
+        return updatedDonation;
+      }
+      return donation;
+    }));
+  };
+
+  const deleteDonation = (id: string) => {
+    const donation = donations.find(d => d.id === id);
+    if (donation && donation.accepted) {
+      setCurrentWeight(prev => prev - donation.weight);
+    }
+    setDonations(prev => prev.filter(d => d.id !== id));
+  };
+
   const employeeNavItems = [
     { id: 'scanner' as const, label: 'Scan', icon: Camera },
     { id: 'schedule' as const, label: 'Schedule', icon: Calendar },
@@ -296,8 +323,8 @@ export default function App() {
                       }}
                       className={`flex flex-col items-center gap-1 px-4 py-2 transition-colors min-w-[80px] ${
                         activeView === item.id
-                          ? `${colorClasses.secondary} border-b-2 ${colorClasses.border}`
-                          : 'hover:bg-white/10 active:bg-white/20'
+                          ? 'bg-white text-[#0053A0] border-b-2 border-[#0053A0]'
+                          : 'text-white hover:bg-white/10 active:bg-white/20'
                       }`}
                     >
                       <Icon className="w-5 h-5" />
@@ -319,7 +346,7 @@ export default function App() {
             />
           )}
           {activeView === 'schedule' && <WorkSchedule />}
-          {activeView === 'tracker' && <DonationTracker donations={donations} currentWeight={currentWeight} maxCapacity={maxCapacity} />}
+          {activeView === 'tracker' && <DonationTracker donations={donations} currentWeight={currentWeight} maxCapacity={maxCapacity} onUpdate={updateDonation} onDelete={deleteDonation} />}
           {activeView === 'analytics' && <Analytics />}
         </main>
       </div>

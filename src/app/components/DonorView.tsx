@@ -72,11 +72,11 @@ export function DonorView() {
   const [selectedLocation, setSelectedLocation] = useState<LocationNeed>(locationData[0]);
   const [showGuidelines, setShowGuidelines] = useState(false);
 
-  // Prepare text content for line reader
+  // Prepare text content for line reader (updates when selectedLocation changes)
   const pageContent = [
     'Welcome to Goodwill Donor Portal.',
-    `Daily Goal: 1,247 donations today out of 1,500.`,
-    `Selected Location: ${selectedLocation.location}, ${selectedLocation.distance} miles away.`,
+    `Monthly Goal: 397 children's books donated out of 500.`,
+    `Selected Location: ${selectedLocation.location}, located at ${selectedLocation.address}, ${selectedLocation.city}, ${selectedLocation.state}, ${selectedLocation.distance} miles away.`,
     `Urgently Needed Items: ${selectedLocation.urgentNeeds.join(', ')}.`,
     `Currently Accepting: ${selectedLocation.regularNeeds.join(', ')}.`,
     `Not Accepting: ${selectedLocation.notNeeded.join(', ')}.`,
@@ -97,14 +97,14 @@ export function DonorView() {
         <LineReader lines={pageContent} />
       </div>
 
-      {/* 1. Daily Goal */}
+      {/* 1. Monthly Goal */}
       <div className="bg-[#0053A0] text-white rounded-lg shadow-md p-4">
-        <h3 className="text-white mb-1 text-base font-bold">Daily Goal</h3>
-        <p className="text-xs text-white mb-3">1,247 donations today!</p>
+        <h3 className="text-white mb-1 text-base font-bold">Monthly Goal: Children's Books</h3>
+        <p className="text-xs text-white mb-3">Thank you! We've had 397 Children's Books donated to date!</p>
         <div className="bg-white/20 rounded-full h-3 mb-1">
           <div className="bg-white rounded-full h-3 transition-all duration-500" style={{ width: '83%' }}></div>
         </div>
-        <p className="text-xs text-white">1,247 / 1,500 donations (83%)</p>
+        <p className="text-xs text-white">397 / 500 donations (79%)</p>
       </div>
 
       {/* 2. Select Store Location */}

@@ -1,6 +1,6 @@
 # Goodwill Donation Tracker App
 
-This is a code bundle for the Goodwill Donation Tracker App. The original project is available at https://www.figma.com/design/yeV5CyxKkTSF7My1HahqbM/Donation-Management-App.
+This is a code bundle for the Goodwill Donation Tracker App. The original project is available at [https://www.figma.com/design/yeV5CyxKkTSF7My1HahqbM/Donation-Management-App](https://reply-metric-03492223.figma.site).
 
 # Description
 
